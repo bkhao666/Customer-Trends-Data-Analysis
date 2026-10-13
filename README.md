@@ -12,14 +12,13 @@ The workflow covers data inspection, cleaning, exploratory analysis, SQL analysi
 
 ## Business Problem
 
-Management wants to understand how customer demographics, product categories, seasons, discounts, reviews, subscriptions, payment preferences, and fulfillment choices relate to sales and repeat purchasing.
+A leading retail company convened its C-suite to understand recent changes in customer shopping behavior and determine how those changes can be used to improve sales, customer satisfaction, and long-term loyalty. Management is particularly interested in how purchasing patterns vary across customer demographics, product categories, and shopping preferences, and whether factors such as discounts, review ratings, seasons, subscriptions, shipping choices, payment methods, and purchase history influence customer decisions and repeat purchases.
 
-The analysis focuses on:
+The project addresses the following overarching business question:
 
-- identifying the customer and product segments that contribute the most revenue;
-- evaluating whether discounts, ratings, and subscriptions are useful engagement signals;
-- finding opportunities to improve loyalty, merchandising, and campaign targeting; and
-- highlighting data gaps that limit causal or time-based analysis.
+> How can the company leverage customer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?
+
+To answer it, the analysis evaluates revenue and purchase behavior across customer and product segments, examines potential engagement and loyalty signals, and identifies practical opportunities for campaign targeting, merchandising, subscription design, and customer retention.
 
 ## Dataset
 
@@ -75,23 +74,24 @@ Open the [Power BI file](customer_behavior_dashboard.pbix) to use the interactiv
 
 ## Results
 
-- **$233,081** in observed revenue was generated across 3,900 records.
-- **Clothing** produced $104,264, or **44.7% of total revenue**.
-- Clothing and Accessories together contributed **76.6% of revenue**.
-- **Young Adults ages 18 to 31** generated the highest age-group revenue at $62,143.
-- **27% of customers** were subscribers, but subscriber and non-subscriber average purchases were nearly identical.
-- Discounted purchases averaged **$59.28**, compared with **$60.13** without a discount. Discounts should therefore be evaluated with controlled margin tests rather than assumed to increase order value.
-- Purchase amount had very weak relationships with review rating and previous-purchase count in this snapshot.
-- Payment and shipping preferences were broadly distributed, supporting customer choice rather than a single default option.
+- The 3,900 customer records generated **$233,081 in revenue**, with an **average purchase of $59.76** and an **average review rating of 3.75**.
+- **Clothing was the strongest category**, producing $104,264, or **44.7% of total revenue**. Clothing and Accessories together accounted for **76.6% of revenue**, making them the most important categories for merchandising and cross-selling.
+- **Young Adults ages 18–31** generated the highest age-group revenue at **$62,143**. However, average purchase amounts were similar across age groups, indicating that the revenue lead was driven mainly by customer volume rather than substantially higher spending per purchase.
+- Only **27% of customers were subscribers**. Subscribers showed a slightly higher repeat-buyer share, but their current average purchase amount was nearly the same as that of non-subscribers, so subscription status alone did not indicate higher transaction value.
+- Discounted purchases averaged **$59.28**, compared with **$60.13** for purchases without a discount. The data therefore does not show that discount use increased order value.
+- Review ratings and previous-purchase counts had **very weak relationships with current purchase amount**. Higher ratings or a longer purchase history did not reliably translate into a larger transaction in this snapshot.
+- Payment methods and shipping preferences were broadly distributed. No single option dominated strongly enough to justify reducing customer choice.
+- The findings are descriptive rather than causal because the dataset does not contain transaction dates, profit margins, quantities, returns, marketing exposure, or a true sales-channel field.
 
 ## Recommendations
 
-- Build lifecycle campaigns for New, Returning, and Loyal customers using purchase history and stated cadence.
-- Protect the Clothing revenue base and use Accessories as the primary cross-sell opportunity.
-- Replace broad discounting with customer-level holdout tests that measure incremental contribution margin.
-- Investigate high-volume products with below-average ratings, especially Shirts and Blouses.
-- Test clearer subscription benefits before increasing subscriber acquisition spending.
-- Add transaction date, margin, channel, return, quantity, and acquisition-source fields to future data collection.
+- **Prioritize Clothing and Accessories.** Protect inventory availability and visibility for Clothing, then use Accessories in bundles and personalized cross-sell campaigns. Test category combinations instead of treating all products equally.
+- **Target customers by lifecycle stage.** Segment customers as New, Returning, and Loyal using previous purchases and stated buying frequency. Use onboarding offers for new customers, replenishment reminders for returning customers, and recognition or early-access benefits for loyal customers.
+- **Use discounts selectively.** Replace broad discounting with controlled customer-level tests. Evaluate incremental conversion, average order value, and contribution margin against a non-discounted holdout group before expanding an offer.
+- **Strengthen the subscription value proposition.** Test benefits such as early access, exclusive bundles, loyalty points, or shipping advantages. Measure retention and incremental profit before increasing subscriber-acquisition spending.
+- **Address product-experience gaps.** Review high-volume products with below-average ratings—particularly Shirts and Blouses—to identify issues involving quality, fit, product descriptions, or fulfillment.
+- **Preserve payment and fulfillment choice.** Maintain multiple payment and shipping options while testing whether personalized defaults can reduce checkout friction without removing customer flexibility.
+- **Improve future measurement.** Add transaction date, sales channel, quantity, product cost, discount depth, returns, campaign exposure, and acquisition source. These fields will support cohort retention, customer lifetime value, channel performance, profitability analysis, and stronger causal testing.
 
 ## Next Steps and Limitations
 
