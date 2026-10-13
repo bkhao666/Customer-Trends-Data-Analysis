@@ -105,7 +105,7 @@ Recommended next steps are to create a dated transaction model, measure cohort r
 
 ```bash
 git clone https://github.com/bkhao666/Customer-Trends-Data-Analysis.git
-cd customer-trends-data-analysis
+cd Customer-Trends-Data-Analysis
 python -m venv .venv
 ```
 
