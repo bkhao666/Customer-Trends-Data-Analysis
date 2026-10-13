@@ -39,7 +39,7 @@ Data preparation included:
 - creating age-group and purchase-frequency-day fields; and
 - removing `promo_code_used` because it duplicated `discount_applied` in every record.
 
-See the [data dictionary](data/README.md) for field definitions and limitations.
+The raw and cleaned CSV files are included in the repository root.
 
 ## Tools
 
@@ -61,7 +61,7 @@ See the [data dictionary](data/README.md) for field definitions and limitations.
 
 ## Dashboard
 
-![Customer Behavior Dashboard](assets/customer_behavior_dashboard.png)
+![Customer Behavior Dashboard](customer_behavior_dashboard.png)
 
 The dashboard includes:
 
@@ -71,7 +71,7 @@ The dashboard includes:
 - subscription, gender, category, and shipping filters; and
 - revenue and sales comparisons by category and age group.
 
-Open the [Power BI file](dashboard/customer_behavior_dashboard.pbix) to use the interactive version.
+Open the [Power BI file](customer_behavior_dashboard.pbix) to use the interactive version.
 
 ## Results
 
@@ -124,43 +124,34 @@ pip install -r requirements.txt
 ### 2. Run the Python analysis
 
 ```bash
-jupyter lab notebooks/customer_behavior_analysis.ipynb
+jupyter lab customer_behavior_analysis.ipynb
 ```
 
-Run all cells to recreate `data/processed/customer_behavior_cleaned.csv` and the exploratory analysis.
+Run all cells to recreate `customer_behavior_cleaned.csv` and the exploratory analysis.
 
 ### 3. Run the MySQL analysis
 
 1. Open MySQL Workbench.
-2. Run `sql/create_database.sql`.
-3. Import `data/processed/customer_behavior_cleaned.csv` into the `customer` table.
-4. Run `sql/customer_behavior_queries.sql`.
+2. Import `customer_behavior_cleaned.csv` with the Table Data Import Wizard and name the table `customer`.
+3. Run `customer_behavior_queries.sql`.
 
 ### 4. Open the dashboard and report
 
-- Open `dashboard/customer_behavior_dashboard.pbix` in Power BI Desktop.
-- Read `reports/customer_shopping_behavior_analysis.pdf` for the executive report.
+- Open `customer_behavior_dashboard.pbix` in Power BI Desktop.
+- Read `customer_shopping_behavior_analysis.pdf` for the executive report.
 
 ## Repository Structure
 
 ```text
 customer-trends-data-analysis/
-|-- assets/
-|   `-- customer_behavior_dashboard.png
-|-- dashboard/
-|   `-- customer_behavior_dashboard.pbix
-|-- data/
-|   |-- raw/customer_shopping_behavior.csv
-|   |-- processed/customer_behavior_cleaned.csv
-|   `-- README.md
-|-- notebooks/
-|   `-- customer_behavior_analysis.ipynb
-|-- reports/
-|   `-- customer_shopping_behavior_analysis.pdf
-|-- sql/
-|   |-- create_database.sql
-|   `-- customer_behavior_queries.sql
 |-- .gitignore
+|-- customer_behavior_analysis.ipynb
+|-- customer_behavior_cleaned.csv
+|-- customer_behavior_dashboard.pbix
+|-- customer_behavior_dashboard.png
+|-- customer_behavior_queries.sql
+|-- customer_shopping_behavior_analysis.pdf
+|-- customer_shopping_behavior.csv
 |-- README.md
 `-- requirements.txt
 ```
